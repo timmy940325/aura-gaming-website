@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA GAMING - 頂級客製化電競硬體</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Poppins for a modern, techy feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* 自定義樣式 */
+        body {
+            font-family: 'Poppins', 'Microsoft JhengHei', sans-serif;
+            background-color: #0a0a0a; /* 更深邃的黑色背景 */
+            color: #e5e7eb; /* 淺灰色文字，提高可讀性 */
+        }
+
+        /* 霓虹輝光效果 */
+        .neon-glow-purple {
+            transition: all 0.3s ease-in-out;
+        }
+        .neon-glow-purple:hover {
+            box-shadow: 0 0 5px theme('colors.purple.500'), 
+                        0 0 15px theme('colors.purple.600'), 
+                        0 0 25px theme('colors.purple.700');
+        }
+
+        .neon-glow-cyan {
+            transition: all 0.3s ease-in-out;
+        }
+        .neon-glow-cyan:hover {
+            box-shadow: 0 0 5px theme('colors.cyan.400'), 
+                        0 0 15px theme('colors.cyan.500'), 
+                        0 0 25px theme('colors.cyan.600');
+        }
+
+        /* 跑馬燈動畫 */
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+            animation: marquee 20s linear infinite;
+        }
+
+        /* 導覽列滾動時的背景效果 */
+        .navbar-scrolled {
+            background-color: rgba(10, 10, 10, 0.7) !important;
+            backdrop-filter: blur(12px) !important;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-200">
+
+    <!-- 
+        ========================================
+        1. 科技感導覽列 (Navbar)
+        ========================================
+        - 特點：黏滯頂部、毛玻璃效果、懸停發光圖示
+        - JS 互動：滾動時改變背景、手機版選單開關
+    -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold text-white tracking-wider">
+                AURA<span class="text-cyan-400">.</span>
+            </a>
+
+            <!-- 桌面版選單 -->
+            <ul class="hidden lg:flex items-center space-x-8">
+                <li><a href="#" class="hover:text-cyan-400 transition-colors duration-300">客製化主機</a></li>
+                <li><a href="#" class="hover:text-cyan-400 transition-colors duration-300">電競周邊</a></li>
+                <li><a href="#" class="hover:text-cyan-400 transition-colors duration-300">硬體零件</a></li>
+                <li><a href="#" class="hover:text-cyan-400 transition-colors duration-300">技術支援</a></li>
+            </ul>
+
+            <!-- 圖示區 -->
+            <div class="flex items-center space-x-6">
+                <button class="hover:text-cyan-400 transition-colors duration-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </button>
+                <button class="relative group">
+                    <svg class="w-6 h-6 group-hover:text-cyan-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <span class="absolute -top-2 -right-2 w-4 h-4 bg-cyan-500 text-white text-xs rounded-full flex items-center justify-center group-hover:animate-ping">2</span>
+                    <div class="absolute w-6 h-6 top-0 left-0 rounded-full transition-all duration-300 group-hover:shadow-[0_0_15px_theme(colors.cyan.400)]"></div>
+                </button>
+                
+                <!-- 手機版選單按鈕 -->
+                <button id="mobile-menu-button" class="lg:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- 手機版彈出選單 -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-gray-900/90 backdrop-blur-md">
+            <ul class="flex flex-col items-center py-4 space-y-4">
+                <li><a href="#" class="hover:text-cyan-400 transition-colors duration-300">客製化主機</a></li>
+                <li><a href="#" class="hover:text-cyan-400 transition-colors duration-300">電競周邊</a></li>
+                <li><a href="#" class="hover:text-cyan-400 transition-colors duration-300">硬體零件</a></li>
+                <li><a href="#" class="hover:text-cyan-400 transition-colors duration-300">技術支援</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- 
+            ========================================
+            2. 震撼滿版主視覺 (Hero Banner)
+            ========================================
+            - 特點：滿版背景圖、漸層大標題、科技感 CTA 按鈕
+        -->
+        <section class="h-screen w-full relative flex items-center justify-center text-center">
+            <!-- 背景圖與遮罩 -->
+            <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('https://images.unsplash.com/photo-1598993454238-015b3a886862?q=80&w=2070&auto=format&fit=crop');"></div>
+            <div class="absolute inset-0 bg-black/70 z-10"></div>
+            
+            <!-- 內容 -->
+            <div class="relative z-20 px-4">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 tracking-tight leading-tight">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400">
+                        解鎖極限效能
+                    </span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+                    搭載 NVIDIA RTX 50 系列與 Intel Core Ultra 處理器，打造專為競技而生的終極水冷主機。
+                </p>
+                <a href="#" class="inline-block px-10 py-4 border-2 border-cyan-400 text-cyan-400 font-semibold rounded-md relative overflow-hidden transition-all duration-300 ease-in-out group neon-glow-cyan">
+                    <span class="relative z-10 group-hover:text-black">打造專屬主機</span>
+                    <div class="absolute inset-0 bg-cyan-400 transform scale-x-0 origin-left transition-transform duration-300 ease-in-out group-hover:scale-x-100"></div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 
+            ========================================
+            3. 跑馬燈告示 (Marquee)
+            ========================================
+            - 特點：無縫滾動
+        -->
+        <div class="bg-gray-900 py-3 overflow-hidden">
+            <div class="flex animate-marquee whitespace-nowrap">
+                <span class="mx-8 text-sm font-semibold text-cyan-400">最新 RTX 50 系列客製機現貨供應</span>
+                <span class="mx-8 text-sm font-semibold text-gray-300">全館滿 NT$50,000 享頂級溫控物流免費配送</span>
+                <span class="mx-8 text-sm font-semibold text-cyan-400">Valorant & Overwatch 聯名周邊限量發售</span>
+                <span class="mx-8 text-sm font-semibold text-gray-300">加入會員即享首次購物 95 折優惠</span>
+                <!-- 複製內容以達成無縫效果 -->
+                <span class="mx-8 text-sm font-semibold text-cyan-400">最新 RTX 50 系列客製機現貨供應</span>
+                <span class="mx-8 text-sm font-semibold text-gray-300">全館滿 NT$50,000 享頂級溫控物流免費配送</span>
+                <span class="mx-8 text-sm font-semibold text-cyan-400">Valorant & Overwatch 聯名周邊限量發售</span>
+                <span class="mx-8 text-sm font-semibold text-gray-300">加入會員即享首次購物 95 折優惠</span>
+            </div>
+        </div>
+
+        <!-- 
+            ========================================
+            4. 旗艦裝備展示 (Featured Gear)
+            ========================================
+            - 特點：商品卡片、霓虹懸停效果、圖片放大、按鈕浮現
+        -->
+        <section class="py-20 bg-black">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">旗艦裝備 <span class="text-purple-500">Showcase</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- 商品卡片 1: 客製主機 -->
+                    <div class="group relative bg-gray-900 border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 hover:border-purple-500 hover:shadow-[0_0_20px_theme(colors.purple.500/0.5)]">
+                        <div class="overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1627843563095-f6e94676cfe0?q=80&w=1974&auto=format&fit=crop" alt="Custom PC" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2">AURA Nebula X</h3>
+                            <div class="flex flex-wrap gap-2 mb-3 text-xs">
+                                <span class="bg-gray-700 px-2 py-1 rounded-full">RTX 5090</span>
+                                <span class="bg-gray-700 px-2 py-1 rounded-full">Core Ultra 9</span>
+                                <span class="bg-gray-700 px-2 py-1 rounded-full">水冷散熱</span>
+                            </div>
+                            <p class="text-2xl font-bold text-cyan-400">NT$ 128,000</p>
+                        </div>
+                        <button class="add-to-cart-btn absolute bottom-5 right-5 bg-cyan-500 text-white px-4 py-2 rounded-md opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">加入購物車</button>
+                    </div>
+
+                    <!-- 商品卡片 2: Xbox Elite 控制器 -->
+                    <div class="group relative bg-gray-900 border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 hover:border-purple-500 hover:shadow-[0_0_20px_theme(colors.purple.500/0.5)]">
+                        <div class="overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1622979344445-54b602882885?q=80&w=2070&auto=format&fit=crop" alt="Xbox Elite Controller" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2">Xbox Elite Series 2</h3>
+                            <div class="flex flex-wrap gap-2 mb-3 text-xs">
+                                <span class="bg-gray-700 px-2 py-1 rounded-full">可換式撥片</span>
+                                <span class="bg-gray-700 px-2 py-1 rounded-full">專業競技</span>
+                            </div>
+                            <p class="text-2xl font-bold text-cyan-400">NT$ 5,290</p>
+                        </div>
+                        <button class="add-to-cart-btn absolute bottom-5 right-5 bg-cyan-500 text-white px-4 py-2 rounded-md opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">加入購物車</button>
+                    </div>
+
+                    <!-- 商品卡片 3: 電競螢幕 -->
+                    <div class="group relative bg-gray-900 border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 hover:border-purple-500 hover:shadow-[0_0_20px_theme(colors.purple.500/0.5)]">
+                        <div class="overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1616440332357-075364253136?q=80&w=2070&auto=format&fit=crop" alt="Gaming Monitor" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2">AURA Horizon 360</h3>
+                            <div class="flex flex-wrap gap-2 mb-3 text-xs">
+                                <span class="bg-gray-700 px-2 py-1 rounded-full">360Hz</span>
+                                <span class="bg-gray-700 px-2 py-1 rounded-full">2K QHD</span>
+                                <span class="bg-gray-700 px-2 py-1 rounded-full">1ms</span>
+                            </div>
+                            <p class="text-2xl font-bold text-cyan-400">NT$ 25,900</p>
+                        </div>
+                        <button class="add-to-cart-btn absolute bottom-5 right-5 bg-cyan-500 text-white px-4 py-2 rounded-md opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">加入購物車</button>
+                    </div>
+                    
+                    <!-- 商品卡片 4: 電競耳機 -->
+                    <div class="group relative bg-gray-900 border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 hover:border-purple-500 hover:shadow-[0_0_20px_theme(colors.purple.500/0.5)]">
+                        <div class="overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1613110332856-c737482c3c99?q=80&w=1964&auto=format&fit=crop" alt="Gaming Headset" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2">Razer BlackShark V2</h3>
+                            <div class="flex flex-wrap gap-2 mb-3 text-xs">
+                                <span class="bg-gray-700 px-2 py-1 rounded-full">THX 7.1</span>
+                                <span class="bg-gray-700 px-2 py-1 rounded-full">Overwatch 調校</span>
+                            </div>
+                            <p class="text-2xl font-bold text-cyan-400">NT$ 3,590</p>
+                        </div>
+                        <button class="add-to-cart-btn absolute bottom-5 right-5 bg-cyan-500 text-white px-4 py-2 rounded-md opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">加入購物車</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            ========================================
+            5. 規格對比或分類網格 (Category Grid)
+            ========================================
+            - 特點：CSS Grid 排版、遊戲情境推薦
+        -->
+        <section class="py-20 bg-gray-950">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">為你的戰場 <span class="text-cyan-400">量身訂製</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- 分類 1: FPS競技 -->
+                    <div class="relative rounded-lg overflow-hidden h-80 group">
+                        <img src="https://images.unsplash.com/photo-1580327344181-c1163d047420?q=80&w=1995&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="FPS Gaming">
+                        <div class="absolute inset-0 bg-black/60"></div>
+                        <div class="relative h-full flex flex-col justify-end p-8 text-white">
+                            <h3 class="text-3xl font-bold mb-2">FPS 競技專區</h3>
+                            <p class="text-gray-300 mb-4">專為《特戰英豪》與《鬥陣特攻》設計，追求極致反應速度與畫面流暢度。</p>
+                            <a href="#" class="font-semibold text-cyan-400 self-start">探索配置 →</a>
+                        </div>
+                    </div>
+                    <!-- 分類 2: 3A大作 -->
+                    <div class="relative rounded-lg overflow-hidden h-80 group">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="AAA Gaming">
+                        <div class="absolute inset-0 bg-black/60"></div>
+                        <div class="relative h-full flex flex-col justify-end p-8 text-white">
+                            <h3 class="text-3xl font-bold mb-2">3A 大作極致畫質區</h3>
+                            <p class="text-gray-300 mb-4">RTX 光線追蹤全開，沉浸在最逼真的電影級遊戲世界。</p>
+                            <a href="#" class="font-semibold text-cyan-400 self-start">探索配置 →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            ========================================
+            6. 專業頁尾 (Footer)
+            ========================================
+            - 特點：電子報訂閱、社群連結、服務條款
+        -->
+        <footer class="bg-gray-900 pt-16 pb-8">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                    <!-- 訂閱 -->
+                    <div class="md:col-span-2">
+                        <h3 class="text-lg font-semibold text-white mb-4">訂閱電子報</h3>
+                        <p class="text-gray-400 mb-4">獲取最新硬體資訊、獨家優惠與電競新聞。</p>
+                        <form class="flex">
+                            <input type="email" placeholder="輸入您的 Email" class="w-full bg-gray-800 text-white px-4 py-2 rounded-l-md focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                            <button class="bg-cyan-500 text-white px-6 py-2 rounded-r-md hover:bg-cyan-600 transition-colors">訂閱</button>
+                        </form>
+                    </div>
+                    <!-- 連結 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-4">客戶服務</h3>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#" class="hover:text-cyan-400">保固條款</a></li>
+                            <li><a href="#" class="hover:text-cyan-400">退換貨政策</a></li>
+                            <li><a href="#" class="hover:text-cyan-400">常見問題</a></li>
+                            <li><a href="#" class="hover:text-cyan-400">聯絡我們</a></li>
+                        </ul>
+                    </div>
+                    <!-- 社群 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-4">追蹤我們</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218 1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.345 2.525c.636-.247 1.363-.416 2.427-.465C9.793 2.013 10.147 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.25-8.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" clip-rule="evenodd" /></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                    <p>&copy; 2024 AURA GAMING Inc. All Rights Reserved. 僅為展示用途。</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+    // 使用 DOMContentLoaded 確保在操作 DOM 前，HTML 已完全載入
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- 1. 導覽列滾動效果 ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            // 當滾動超過 50px 時，增加模糊背景效果，否則移除
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+
+        // --- 2. 手機版選單切換 ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            // 切換 'hidden' class 來顯示或隱藏選單
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- 3. 購物車點擊互動 ---
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                // 阻止事件冒泡到父層的 group div
+                e.stopPropagation();
+                // 顯示一個簡單的提示訊息
+                alert('商品已加入購物車！ (此為示範功能)');
+            });
+        });
+
+    });
+    </script>
+
+</body>
+</html>
