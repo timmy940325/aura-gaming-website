@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品詳情 - TXY GAMING</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-black text-gray-200 min-h-screen flex flex-col">
+
+    <header class="bg-gray-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-800">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white tracking-wider">
+                TXY<span class="text-cyan-400">.</span>
+            </a>
+            <ul class="hidden lg:flex items-center space-x-8">
+                <li><a href="products.html" class="hover:text-cyan-400 transition-colors">所有裝備</a></li>
+                <li><a href="product-detail.html" class="text-cyan-400 hover:text-cyan-300 transition-colors">商品展示</a></li>
+                <li><a href="login.html" class="hover:text-cyan-400 transition-colors">會員登入</a></li>
+            </ul>
+            <div class="flex items-center space-x-6">
+                <a href="checkout.html" class="relative group">
+                    <svg class="w-6 h-6 hover:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <span class="absolute -top-2 -right-2 w-4 h-4 bg-cyan-500 text-black text-xs rounded-full flex items-center justify-center font-bold">2</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow container mx-auto px-6 py-12">
+        <!-- 麵包屑 -->
+        <div class="text-sm text-gray-500 mb-8">
+            <a href="index.html" class="hover:text-cyan-400">首頁</a> > 
+            <a href="products.html" class="hover:text-cyan-400">客製化主機</a> > 
+            <span class="text-gray-300">TXY Nebula X</span>
+        </div>
+
+        <!-- 產品主要區塊 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <!-- 左側：圖片保留區 -->
+            <div class="space-y-4">
+                <!-- 主圖 -->
+                <div class="w-full h-96 lg:h-[500px] bg-gray-900 border border-gray-800 rounded-lg flex flex-col items-center justify-center relative group">
+                    <svg class="w-16 h-16 text-gray-700 mb-4 group-hover:text-cyan-500 transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <span class="text-gray-500 text-lg tracking-widest font-light group-hover:text-gray-300 transition-colors duration-500">主商品圖片 (待 AI 生成)</span>
+                    <div class="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-lg"></div>
+                </div>
+                <!-- 縮圖列 -->
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="h-24 bg-gray-900 border-2 border-cyan-500 rounded-lg flex items-center justify-center cursor-pointer">
+                        <span class="text-gray-600 text-xs">圖 1</span>
+                    </div>
+                    <div class="h-24 bg-gray-950 border border-gray-800 rounded-lg flex items-center justify-center cursor-pointer hover:border-gray-600 transition-colors">
+                        <span class="text-gray-600 text-xs">圖 2</span>
+                    </div>
+                    <div class="h-24 bg-gray-950 border border-gray-800 rounded-lg flex items-center justify-center cursor-pointer hover:border-gray-600 transition-colors">
+                        <span class="text-gray-600 text-xs">圖 3</span>
+                    </div>
+                    <div class="h-24 bg-gray-950 border border-gray-800 rounded-lg flex items-center justify-center cursor-pointer hover:border-gray-600 transition-colors">
+                        <span class="text-gray-600 text-xs">圖 4</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右側：產品資訊 -->
+            <div class="flex flex-col">
+                <div class="mb-6 border-b border-gray-800 pb-6">
+                    <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">TXY Nebula X <span class="text-sm font-normal bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full ml-4 align-middle">旗艦特仕版</span></h1>
+                    <p class="text-gray-400 mt-4 leading-relaxed">搭載最新 NVIDIA RTX 5090 顯示卡與 Intel Core Ultra 9 處理器，輔以 TXY 獨家手工冷排迴路，為追求 4K/8K 滿幀體驗的極致玩家打造的終極兵器。</p>
+                </div>
+
+                <div class="mb-8">
+                    <p class="text-4xl font-bold text-cyan-400 mb-2">NT$ 128,000</p>
+                    <p class="text-sm text-gray-500">此商品享免運費，並提供 36 個月原廠到府保固。</p>
+                </div>
+
+                <!-- 規格選擇 (客製化) -->
+                <div class="space-y-6 mb-8">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-300 mb-3">記憶體配置 (RAM)</h3>
+                        <div class="flex space-x-4">
+                            <button class="border-2 border-cyan-500 bg-cyan-500/10 text-white px-4 py-2 rounded-md font-medium">64GB DDR5-8000</button>
+                            <button class="border border-gray-700 text-gray-400 px-4 py-2 rounded-md hover:border-gray-500 transition-colors">128GB DDR5-8000 (+ $9,000)</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-300 mb-3">儲存空間 (SSD)</h3>
+                        <div class="flex space-x-4">
+                            <button class="border-2 border-cyan-500 bg-cyan-500/10 text-white px-4 py-2 rounded-md font-medium">2TB Gen5 NVMe</button>
+                            <button class="border border-gray-700 text-gray-400 px-4 py-2 rounded-md hover:border-gray-500 transition-colors">4TB Gen5 NVMe (+ $8,500)</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 加入購物車區 -->
+                <div class="mt-auto flex space-x-4">
+                    <div class="flex border border-gray-700 rounded-md bg-gray-900 w-32">
+                        <button class="px-4 py-3 text-gray-400 hover:text-white transition-colors">-</button>
+                        <input type="text" value="1" class="w-full bg-transparent text-center text-white font-bold outline-none" readonly>
+                        <button class="px-4 py-3 text-gray-400 hover:text-white transition-colors">+</button>
+                    </div>
+                    <button class="flex-grow bg-cyan-500 text-black font-bold text-lg rounded-md hover:bg-cyan-400 transition-colors shadow-[0_0_15px_rgba(34,211,238,0.3)] hover:shadow-[0_0_25px_rgba(34,211,238,0.6)]">
+                        加入購物車
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 下方標籤頁：規格與評價 -->
+        <div class="border-t border-gray-800 pt-8">
+            <div class="flex space-x-8 border-b border-gray-800 mb-8">
+                <button class="text-cyan-400 font-bold pb-4 border-b-2 border-cyan-400">詳細規格</button>
+                <button class="text-gray-500 font-bold pb-4 hover:text-gray-300 transition-colors">買家評價 (12)</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 text-gray-300">
+                <div class="flex justify-between border-b border-gray-800 pb-2"><span class="text-gray-500">處理器</span><span>Intel Core Ultra 9 285K</span></div>
+                <div class="flex justify-between border-b border-gray-800 pb-2"><span class="text-gray-500">顯示卡</span><span>NVIDIA GeForce RTX 5090 32GB</span></div>
+                <div class="flex justify-between border-b border-gray-800 pb-2"><span class="text-gray-500">主機板</span><span>ROG MAXIMUS Z890 EXTREME</span></div>
+                <div class="flex justify-between border-b border-gray-800 pb-2"><span class="text-gray-500">電源供應器</span><span>TXY Thor 1600W Titanium</span></div>
+                <div class="flex justify-between border-b border-gray-800 pb-2"><span class="text-gray-500">散熱系統</span><span>TXY 獨家訂製 360mm 雙冷排全水冷</span></div>
+                <div class="flex justify-between border-b border-gray-800 pb-2"><span class="text-gray-500">作業系統</span><span>Windows 11 Pro 專業版</span></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-8 text-center text-sm text-gray-500 border-t border-gray-800 mt-12">
+        <p>&copy; 2024 TXY GAMING Inc. All Rights Reserved.</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
