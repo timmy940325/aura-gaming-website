@@ -1,0 +1,47 @@
+/* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', 'Microsoft JhengHei', sans-serif;
+    background-color: #0a0a0a; /* 更深邃的黑色背景 */
+    color: #e5e7eb; /* 淺灰色文字，提高可讀性 */
+}
+
+/* 霓虹輝光效果 */
+.neon-glow-purple:hover {
+    box-shadow: 0 0 5px theme('colors.purple.500'), 
+                0 0 15px theme('colors.purple.600'), 
+                0 0 25px theme('colors.purple.700');
+}
+
+.neon-glow-cyan:hover {
+    box-shadow: 0 0 5px theme('colors.cyan.400'), 
+                0 0 15px theme('colors.cyan.500'), 
+                0 0 25px theme('colors.cyan.600');
+}
+
+/* 跑馬燈動畫 */
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+.animate-marquee {
+    animation: marquee 20s linear infinite;
+}
+
+/* 導覽列滾動時的背景效果 */
+.navbar-scrolled {
+    background-color: rgba(10, 10, 10, 0.7) !important;
+    backdrop-filter: blur(12px) !important;
+}
+
+/* 滾動淡入動畫 */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
